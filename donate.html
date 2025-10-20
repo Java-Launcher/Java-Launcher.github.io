@@ -1,30 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Donate – Java Launcher</title>
+  <title>Поддержать проект – Java Launcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Smooth page load */
+    body {
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    
+    .donate-hero {
+      background: linear-gradient(135deg, #3AA655, #2A5A19, #47c96a);
+      padding: 80px 0;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .donate-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="rgba(255,255,255,0.1)" width="10" height="10" x="0" y="0"/></svg>');
+      animation: pixelMove 20s linear infinite;
+    }
+    
+    @keyframes pixelMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(10px, 10px); }
+    }
+    
+    .donate-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 50px 0;
+    }
+    
+    .donate-option {
+      background: var(--card);
+      padding: 35px 25px;
+      border-radius: 15px;
+      text-align: center;
+      border: 3px solid transparent;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .donate-option::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(58, 166, 85, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s;
+      opacity: 0;
+    }
+    
+    .donate-option:hover::before {
+      opacity: 1;
+      transform: rotate(45deg) translate(20px, 20px);
+    }
+    
+    .donate-option:hover {
+      transform: translateY(-12px) scale(1.02);
+      border-color: #3AA655;
+      animation: pixel-glow 1.5s infinite;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .donate-option h3 {
+      font-family: var(--ff-heading);
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+    
+    .donate-option p {
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--card);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 10px;
+      border: 2px solid var(--accent);
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+    }
+    
+    .back-btn:hover {
+      background: var(--accent);
+      color: #07120a;
+      transform: translateX(-5px);
+    }
+    
+    .crypto-info {
+      background: rgba(58, 166, 85, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent);
+      margin-top: 20px;
+      text-align: left;
+    }
+    
+    .crypto-info h4 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
+    .crypto-address {
+      font-family: monospace;
+      background: var(--bg-700);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      word-break: break-all;
+      margin: 10px 0;
+    }
+  </style>
 </head>
-<body>
+<body class="theme-dark">
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="loader" role="status" aria-label="Loading"></div>
+  </div>
+
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <h1>Donate to Java Launcher</h1>
-      <a href="index.html" class="btn">← Back</a>
+      <a href="index.html" class="back-btn">
+        ← Назад к лаунчеру
+      </a>
+      <div class="brand">
+        <img src="images/icon.png" alt="JavaLauncher Logo" class="brand__logo" />
+        <div>
+          <h1 class="brand__title">Java<span class="accent">Launcher</span></h1>
+          <div class="brand__sub">Поддержка разработки</div>
+        </div>
+      </div>
     </div>
   </header>
 
+  <!-- Hero Section -->
+  <div class="donate-hero">
+    <div class="container">
+      <h1 style="font-family: var(--ff-heading); margin-bottom: 20px; font-size: 2.5em;">💚 Поддержать проект</h1>
+      <p style="font-size: 1.2em; max-width: 600px; margin: 0 auto; opacity: 0.9;">
+        Твоя поддержка помогает улучшать лаунчер, добавлять новые функции и ускорять разработку
+      </p>
+    </div>
+  </div>
+
+  <!-- Donation Options -->
   <main class="container section">
-    <h2>Поддержать проект</h2>
-    <p>Ты можешь поддержать Java Launcher, чтобы ускорить обновления и разработку:</p>
-    <ul>
-      <li>💳 Boosty: <a href="https://boosty.to/gordscripts" target="_blank">boosty.to/gordscripts</a></li>
-      <li>📨 Telegram: @gordscripts</li>
-      <li>BTC / USDT / QIWI – по запросу</li>
-    </ul>
+    <div class="donate-options">
+      <!-- Boosty -->
+      <div class="donate-option">
+        <div style="font-size: 3em; margin-bottom: 15px;">💳</div>
+        <h3>Boosty</h3>
+        <p>Ежемесячная подписка с эксклюзивными обновлениями</p>
+        <a href="https://boosty.to/gordscripts" target="_blank" class="btn donate" style="display: inline-block; margin-top: 15px; width: 100%;">
+          🚀 Подписаться на Boosty
+        </a>
+      </div>
+      
+      <!-- Telegram -->
+      <div class="donate-option">
+        <div style="font-size: 3em; margin-bottom: 15px;">📨</div>
+        <h3>Telegram</h3>
+        <p>Прямая связь для донатов и вопросов</p>
+        <a href="https://t.me/gordscripts" target="_blank" class="btn ghost" style="display: inline-block; margin-top: 15px; width: 100%; border: 2px solid #3AA655;">
+          💬 @gordscripts
+        </a>
+        <div style="margin-top: 15px; font-size: 12px; color: var(--muted);">
+          Напиши для доната через перевод
+        </div>
+      </div>
+      
+      <!-- Crypto -->
+      <div class="donate-option">
+        <div style="font-size: 3em; margin-bottom: 15px;">₿</div>
+        <h3>Криптовалюта</h3>
+        <p>BTC, USDT (TRC20), ETH и другие</p>
+        <button onclick="showCryptoInfo()" class="btn ghost" style="display: inline-block; margin-top: 15px; width: 100%; border: 2px solid #3AA655; cursor: pointer;">
+          🔐 Показать адреса
+        </button>
+        
+        <div id="cryptoInfo" class="crypto-info" style="display: none;">
+          <h4>Крипто-адреса:</h4>
+          <div><strong>BTC (Bitcoin):</strong></div>
+          <div class="crypto-address">bc1qgordscriptsxxxxxxxxxxxxxxxxxxxxxx</div>
+          
+          <div><strong>USDT (TRC20):</strong></div>
+          <div class="crypto-address">TGaordscriptsxxxxxxxxxxxxxxxxxxxxxx</div>
+          
+          <div><strong>ETH (Ethereum):</strong></div>
+          <div class="crypto-address">0xGordscriptsxxxxxxxxxxxxxxxxxxxxxx</div>
+          
+          <div style="margin-top: 10px; font-size: 11px; color: var(--muted);">
+            ⚠️ Все адреса проверяй через Telegram
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Info -->
+    <div style="text-align: center; margin-top: 50px; padding: 30px; background: var(--card); border-radius: 15px;">
+      <h3 style="color: var(--accent); margin-bottom: 15px;">🎁 Что даёт поддержка?</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
+        <div>
+          <h4>🚀 Приоритет в разработке</h4>
+          <p style="color: var(--muted); font-size: 14px;">Твои идеи и баг-репорты получают высший приоритет</p>
+        </div>
+        <div>
+          <h4>💡 Новые функции</h4>
+          <p style="color: var(--muted); font-size: 14px;">Ускоренная разработка запрошенных функций</p>
+        </div>
+        <div>
+          <h4>🔧 Техническая поддержка</h4>
+          <p style="color: var(--muted); font-size: 14px;">Помощь с настройкой и решением проблем</p>
+        </div>
+      </div>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">© 2025 Java Launcher</div>
+    <div class="container">
+      <div style="text-align: center; color: var(--muted);">
+        <p>JavaLauncher © 2025 • Спасибо за поддержку! 💚</p>
+        <p>Not associated with Mojang AB or Microsoft</p>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Preloader
+    window.addEventListener('load', function() {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.style.opacity = '0';
+          setTimeout(() => preloader.classList.add('hidden'), 800);
+        }, 500);
+      }
+    });
+
+    // Crypto info toggle
+    function showCryptoInfo() {
+      const cryptoInfo = document.getElementById('cryptoInfo');
+      const isVisible = cryptoInfo.style.display === 'block';
+      
+      cryptoInfo.style.display = isVisible ? 'none' : 'block';
+      
+      if (!isVisible) {
+        cryptoInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    // Add pixel animation to donation options
+    document.querySelectorAll('.donate-option').forEach(option => {
+      option.addEventListener('mouseenter', function() {
+        this.style.animation = 'pixel-glow 1.5s infinite, pixel-border 2s infinite';
+      });
+      
+      option.addEventListener('mouseleave', function() {
+        this.style.animation = '';
+      });
+    });
+  </script>
 </body>
 </html>

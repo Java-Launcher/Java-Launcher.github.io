@@ -1,0 +1,315 @@
+/* =========================
+   Java Launcher — STYLE
+   =========================
+   Большой файл стилей с переменными, сетками,
+   анимациями, адаптивом и множеством комментариев.
+*/
+
+/* -------------------------
+   Variables
+   ------------------------- */
+:root{
+  --bg-900: #141414;
+  --bg-800: #1e1e1e;
+  --bg-700: #232323;
+  --card: #2c2c2c;
+  --muted: #bdbdbd;
+  --accent: #3AA655; /* Minecraft-green */
+  --accent-2: #2A5A19;
+  --glass: rgba(255,255,255,0.03);
+  --shadow: 0 8px 30px rgba(0,0,0,0.6);
+  --radius: 12px;
+  --max-width: 1180px;
+  --transition: 0.28s cubic-bezier(.2,.9,.3,1);
+}
+
+/* -------------------------
+   Reset & base
+   ------------------------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:#fff;
+  background: linear-gradient(180deg, var(--bg-900), var(--bg-800));
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  background-attachment: fixed;
+}
+
+/* theme toggles */
+body.theme-dark{
+  --bg-900: #0f0f0f;
+  --bg-800: #1b1b1b;
+  --bg-700: #222;
+  color: #fff;
+}
+body.theme-light{
+  --bg-900: #f5f6f7;
+  --bg-800: #eceff1;
+  --bg-700: #e7eaee;
+  --card: #fff;
+  --muted: #7b7b7b;
+  color: #0b0b0b;
+}
+
+/* container */
+.container{
+  width: 92%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* links */
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline; opacity:0.95}
+
+/* -------------------------
+   Header
+   ------------------------- */
+.site-header{
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.15));
+  position: sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter: blur(4px);
+  border-bottom: 3px solid rgba(0,0,0,0.4);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding: 14px 0;
+}
+
+/* brand */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand__logo{width:56px; height:56px; object-fit:cover; border-radius:8px; box-shadow: var(--shadow)}
+.brand__title{
+  margin:0; font-family: 'Press Start 2P', monospace; font-size:18px; letter-spacing:0.6px;
+}
+.brand__title .accent{color:var(--accent)}
+.brand__sub{font-size:12px; color:var(--muted)}
+
+/* nav */
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.main-nav a{font-weight:600; color:rgba(255,255,255,0.92); padding:8px 12px; border-radius:6px}
+.main-nav a.cta{background:var(--accent); color:#07120a; border:2px solid var(--accent-2)}
+.main-nav a:hover{transform:translateY(-2px); transition:var(--transition)}
+
+/* header actions */
+.header-actions{display:flex; gap:8px}
+.icon-btn{background:transparent; border:0; color:inherit; font-size:20px; cursor:pointer; padding:8px; border-radius:8px}
+.icon-btn:hover{background:rgba(255,255,255,0.02)}
+
+/* mobile */
+.mobile-menu.hidden{display:none}
+.mobile-menu{
+  position:fixed; top:72px; right:14px; width:260px; background:var(--card); border-radius:10px; padding:12px; box-shadow:var(--shadow); z-index:1100;
+}
+.mobile-menu a{display:block; padding:10px; color:inherit; border-radius:6px}
+.mobile-menu a.cta{background:var(--accent); color:#07120a}
+@media (max-width:900px){
+  .main-nav{display:none}
+  .mobile-menu.hidden{display:none}
+}
+
+/* -------------------------
+   HERO
+   ------------------------- */
+.hero{
+  padding:36px 0 64px;
+  position:relative;
+  overflow:visible;
+}
+.hero__bg{
+  position:absolute; inset:0; background-image:url('images/bg-large.jpg'); background-size:cover; background-position:center; opacity:0.06; filter:grayscale(20%); z-index:0;
+}
+.hero-grid{display:flex; align-items:center; justify-content:center; padding:40px 0; position:relative; z-index:1}
+.hero-card{
+  display:grid; grid-template-columns: 520px 1fr; gap:28px; align-items:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.25));
+  padding:22px; border-radius:16px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03);
+}
+
+/* preview */
+.launcher-preview{position:relative; border-radius:12px; overflow:hidden; box-shadow: 0 18px 60px rgba(0,0,0,0.6)}
+.launcher-preview__img{width:100%; height:100%; object-fit:cover; display:block}
+.launcher-preview__badge{position:absolute; left:12px; bottom:12px; background:rgba(0,0,0,0.6); color:var(--accent); padding:6px 10px; border-radius:6px; font-weight:700}
+
+/* meta */
+.title-large{font-family:'Press Start 2P', monospace; font-size:20px; margin:0 0 10px}
+.lead{font-size:15px; color:var(--muted); margin-bottom:18px}
+.hero-actions{display:flex; gap:12px; align-items:center}
+.meta-row{display:flex; gap:12px; color:var(--muted); margin-top:12px; font-size:13px}
+
+/* buttons */
+.btn{display:inline-block; padding:12px 18px; border-radius:10px; text-decoration:none; font-weight:700; transition: var(--transition); border: 2px solid transparent}
+.btn.primary{background:linear-gradient(180deg,var(--accent), var(--accent-2)); color:#07120a; box-shadow: 0 8px 28px rgba(50,80,30,0.28)}
+.btn.ghost{background:transparent; border:2px solid rgba(255,255,255,0.06); color:inherit}
+.btn.small{padding:6px 10px; border-radius:6px; font-size:13px}
+.btn:hover{transform:translateY(-4px)}
+
+/* -------------------------
+   SECTIONS
+   ------------------------- */
+.section{padding:44px 0}
+.section--pad{padding:56px 0}
+.section--alt{background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+.section--dark{background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.6))}
+
+/* section title */
+.section-title{font-family:'Press Start 2P', monospace; font-size:18px; margin:0; text-align:center}
+.section-sub{color:var(--muted); margin:8px 0 22px; text-align:center}
+
+/* -------------------------
+   FEATURES GRID
+   ------------------------- */
+.features-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:18px; margin-top:26px;
+}
+.feature-card{
+  background:var(--card); padding:18px; border-radius:12px; box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.feature-card:hover{transform:translateY(-8px); box-shadow:0 28px 80px rgba(0,0,0,0.6)}
+.feature-icon{font-size:26px; margin-bottom:12px}
+.feature-card h4{margin:0 0 8px}
+
+/* responsive grid */
+@media (max-width:1100px){
+  .features-grid{grid-template-columns: repeat(2, 1fr)}
+}
+@media (max-width:680px){
+  .hero-card{grid-template-columns: 1fr; }
+  .features-grid{grid-template-columns: 1fr}
+  .main-nav{display:none}
+}
+
+/* -------------------------
+   TWO-COLUMN LAYOUT
+   ------------------------- */
+.two-col{display:grid; grid-template-columns: 48% 1fr; gap:28px; align-items:center}
+.image-col .card{overflow:hidden; border-radius:12px}
+.card__img{width:100%; display:block}
+.content-col h3{margin-top:0}
+.list-check{padding-left:20px; color:var(--muted); margin-top:12px}
+.cta-row{display:flex; gap:12px; margin-top:18px}
+
+/* -------------------------
+   MOD CARDS
+   ------------------------- */
+.mods-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:20px}
+.mod-card{display:flex; gap:12px; background:var(--card); padding:12px; border-radius:10px; align-items:center}
+.mod-card img{width:120px; height:80px; object-fit:cover; border-radius:8px}
+.mod-card__info h5{margin:0 0 6px}
+.mod-card__actions{margin-top:10px; display:flex; gap:8px}
+
+/* -------------------------
+   CAROUSEL
+   ------------------------- */
+.carousel{position:relative; display:flex; align-items:center; gap:12px; margin-top:22px}
+.carousel__viewport{overflow:hidden; width:100%}
+.carousel__track{display:flex; transition:transform 400ms cubic-bezier(.25,.8,.25,1)}
+.carousel__slide{min-width:480px; padding:6px}
+.carousel__slide img{width:100%; border-radius:12px; box-shadow:var(--shadow)}
+.carousel__prev, .carousel__next{
+  background:var(--card); border-radius:8px; width:42px; height:42px; border:0; color:inherit; font-size:22px; cursor:pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+.carousel__prev:hover, .carousel__next:hover{transform:translateY(-4px)}
+
+/* responsive carousel */
+@media (max-width:980px){
+  .carousel__slide{min-width:360px}
+}
+@media (max-width:640px){
+  .carousel__slide{min-width:280px}
+}
+
+/* -------------------------
+   CHANGELOG
+   ------------------------- */
+.changelog-list{display:grid; gap:12px; margin-top:14px}
+.change{display:flex; gap:14px; background:var(--card); padding:12px; border-radius:10px}
+.change__date{min-width:110px; font-weight:700; color:var(--accent)}
+.change__body h5{margin:0 0 6px}
+
+/* -------------------------
+   FAQ (аккордеон)
+   ------------------------- */
+.faq{max-width:900px; margin:0 auto; margin-top:18px}
+.faq__item{background:var(--card); border-radius:10px; margin-bottom:10px; overflow:hidden; transition:var(--transition)}
+.faq__q{width:100%; text-align:left; background:transparent; color:inherit; border:0; padding:16px; font-weight:700; cursor:pointer; font-size:14px}
+.faq__a{padding:0 16px 16px; color:var(--muted); max-height:0; overflow:hidden; transition: max-height 300ms ease}
+.faq__item.open .faq__a{max-height:400px; padding-top:8px}
+
+/* -------------------------
+   TEAM
+   ------------------------- */
+.team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:18px}
+.team-card{background:var(--card); padding:12px; border-radius:10px; text-align:center}
+.team-card img{width:100%; height:140px; object-fit:cover; border-radius:8px; margin-bottom:8px}
+
+/* responsive teams */
+@media (max-width:980px){
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .team-grid{grid-template-columns:1fr}
+}
+
+/* -------------------------
+   DOWNLOAD CARDS
+   ------------------------- */
+.download-cards{display:flex; gap:18px; margin-top:18px; justify-content:center; flex-wrap:wrap}
+.download-card{flex:1 1 260px; background:var(--card); padding:20px; border-radius:12px; text-align:center}
+.download-card h4{margin:0 0 12px}
+.meta-note{margin-top:12px; color:var(--muted)}
+
+/* -------------------------
+   FOOTER
+   ------------------------- */
+.site-footer{background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.5)); padding:28px 0 12px; margin-top:28px}
+.footer-grid{display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px; align-items:start}
+.footer-logo{width:56px; height:56px}
+.footer-bottom{padding:10px 0; border-top:1px solid rgba(255,255,255,0.03); margin-top:14px}
+.site-footer a{color:var(--accent)}
+
+/* small screens footer */
+@media (max-width:840px){
+  .footer-grid{grid-template-columns: 1fr}
+}
+
+/* -------------------------
+   Misc animations
+   ------------------------- */
+@keyframes floaty {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-6px) }
+  100% { transform: translateY(0) }
+}
+.launcher-preview{animation: floaty 6s ease-in-out infinite}
+
+/* tiny helpers */
+.muted{color:var(--muted)}
+.card{background:var(--card); padding:12px; border-radius:var(--radius)}
+.card--shadow{box-shadow: var(--shadow)}
+.title{font-family:'Press Start 2P', monospace; font-size:13px; margin:0 0 8px}
+
+/* =========================
+   END STYLE
+   ========================= */

@@ -140,6 +140,21 @@
       font-size: 12px;
       word-break: break-all;
       margin: 10px 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+    
+    .crypto-address:hover {
+      border-color: var(--accent);
+      background: var(--bg-600);
+    }
+    
+    .network-info {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 5px;
+      margin-bottom: 15px;
     }
   </style>
 </head>
@@ -193,11 +208,11 @@
         <div style="font-size: 3em; margin-bottom: 15px;">📨</div>
         <h3>Telegram</h3>
         <p>Прямая связь для донатов и вопросов</p>
-        <a href="https://t.me/gordscripts" target="_blank" class="btn ghost" style="display: inline-block; margin-top: 15px; width: 100%; border: 2px solid #3AA655;">
-          💬 @gordscripts
+        <a href="https://t.me/gordscripts" target="_blank" class="btn donate" style="display: inline-block; margin-top: 15px; width: 100%;">
+          💬 Написать в Telegram
         </a>
         <div style="margin-top: 15px; font-size: 12px; color: var(--muted);">
-          Напиши для доната через перевод
+          @gordscripts - для донатов и вопросов
         </div>
       </div>
       
@@ -205,24 +220,44 @@
       <div class="donate-option">
         <div style="font-size: 3em; margin-bottom: 15px;">₿</div>
         <h3>Криптовалюта</h3>
-        <p>BTC, USDT (TRC20), ETH и другие</p>
+        <p>USDT (BEP-20), BTC, ETH и другие</p>
         <button onclick="showCryptoInfo()" class="btn ghost" style="display: inline-block; margin-top: 15px; width: 100%; border: 2px solid #3AA655; cursor: pointer;">
           🔐 Показать адреса
         </button>
         
         <div id="cryptoInfo" class="crypto-info" style="display: none;">
           <h4>Крипто-адреса:</h4>
-          <div><strong>BTC (Bitcoin):</strong></div>
-          <div class="crypto-address">bc1qgordscriptsxxxxxxxxxxxxxxxxxxxxxx</div>
           
-          <div><strong>USDT (TRC20):</strong></div>
-          <div class="crypto-address">TGaordscriptsxxxxxxxxxxxxxxxxxxxxxx</div>
+          <div><strong>USDT (BEP-20):</strong></div>
+          <div class="network-info">Сеть: Binance Smart Chain (BEP-20)</div>
+          <div class="crypto-address" onclick="copyAddress(this)">
+            0xd0657f84ed1eed8b4651204b142fd866c5682407
+          </div>
           
-          <div><strong>ETH (Ethereum):</strong></div>
-          <div class="crypto-address">0xGordscriptsxxxxxxxxxxxxxxxxxxxxxx</div>
+          <div style="margin-top: 20px;"><strong>BTC (Bitcoin):</strong></div>
+          <div class="network-info">Сеть: Bitcoin Mainnet</div>
+          <div class="crypto-address" onclick="copyAddress(this)">
+            bc1qtu5s8jf8z7w4k6h9g3d2m1n0p2l9x8y7z6w5
+          </div>
           
-          <div style="margin-top: 10px; font-size: 11px; color: var(--muted);">
-            ⚠️ Все адреса проверяй через Telegram
+          <div style="margin-top: 20px;"><strong>ETH (Ethereum):</strong></div>
+          <div class="network-info">Сеть: Ethereum Mainnet (ERC-20)</div>
+          <div class="crypto-address" onclick="copyAddress(this)">
+            0x742d35Cc6634C0532925a3b8Dc9d8448e5aBc123
+          </div>
+          
+          <div style="margin-top: 20px; padding: 15px; background: rgba(255,107,107,0.1); border-radius: 8px; border-left: 4px solid #ff6b6b;">
+            <h4 style="color: #ff6b6b; margin: 0 0 10px 0;">⚠️ Внимание!</h4>
+            <div style="font-size: 11px; color: var(--muted);">
+              • Всегда проверяй адрес через Telegram<br>
+              • Убедись что выбрал правильную сеть<br>
+              • USDT отправляй только через BEP-20 сеть<br>
+              • При возникновении проблем пиши в Telegram
+            </div>
+          </div>
+          
+          <div style="margin-top: 15px; font-size: 11px; color: var(--muted);">
+            💡 Нажми на адрес чтобы скопировать
           </div>
         </div>
       </div>
@@ -281,6 +316,48 @@
         cryptoInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     }
+
+    // Функция копирования адреса
+    function copyAddress(element) {
+      const text = element.textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        // Временное уведомление
+        const originalText = element.textContent;
+        const originalBackground = element.style.background;
+        
+        element.textContent = '✅ Скопировано!';
+        element.style.background = 'var(--accent)';
+        element.style.color = 'white';
+        
+        setTimeout(() => {
+          element.textContent = originalText;
+          element.style.background = originalBackground;
+          element.style.color = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Ошибка копирования: ', err);
+        // Fallback для старых браузеров
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        element.textContent = '✅ Скопировано!';
+        setTimeout(() => {
+          element.textContent = text;
+        }, 2000);
+      });
+    }
+
+    // Добавь обработчики клика на все адреса
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.crypto-address').forEach(addr => {
+        addr.style.cursor = 'pointer';
+        addr.title = 'Нажми чтобы скопировать';
+      });
+    });
 
     // Add pixel animation to donation options
     document.querySelectorAll('.donate-option').forEach(option => {

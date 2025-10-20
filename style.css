@@ -791,6 +791,133 @@ a.btn:active, button:active { transform: translateY(0); transition: none; }
    - To enable theme switch, toggle body.theme-light on click (JS toggler)
    ========================= */
 
-/* =========================
-   End of stylesheet
-   ========================= */
+// Enhanced animations and effects
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.site-header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Enhanced download button effects
+    const downloadBtn = document.getElementById('download-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('mouseenter', function() {
+            this.style.animation = 'pixel-glow 0.8s infinite, pixel-border 1s infinite';
+        });
+        
+        downloadBtn.addEventListener('mouseleave', function() {
+            this.style.animation = 'pixel-border 3s infinite';
+        });
+    }
+
+    // Smooth scroll with offset for fixed header
+    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+    scrollLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href === '#') return;
+            
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const headerHeight = document.querySelector('.site-header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Enhanced theme toggle with animation
+    const themeToggler = document.getElementById('theme-toggle');
+    if (themeToggler) {
+        themeToggler.addEventListener('click', function() {
+            document.body.classList.toggle('theme-light');
+            localStorage.setItem('theme', document.body.classList.contains('theme-light') ? 'light' : 'dark');
+            
+            // Add rotation effect
+            this.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 500);
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('theme-light');
+        }
+    }
+
+    // Add warning banner for legal notice
+    function addLegalWarning() {
+        const warningHTML = `
+            <div class="warning-banner" style="
+                background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+                color: white;
+                padding: 15px;
+                text-align: center;
+                font-weight: bold;
+                border-bottom: 2px solid #ff4757;
+                position: relative;
+                z-index: 999;
+            ">
+                ⚠️ An unofficial Minecraft Java Edition Launcher<br>
+                <small>Java Launcher does not pirate Minecraft; you need to own a legal copy</small>
+            </div>
+        `;
+        
+        document.body.insertAdjacentHTML('afterbegin', warningHTML);
+    }
+
+    // Initialize enhanced features
+    addLegalWarning();
+    
+    // Add loading animation to cards
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all feature cards and download cards
+    document.querySelectorAll('.feature-card, .download-card').forEach(card => {
+        card.style.animation = 'fadeInUp 0.8s ease-out forwards';
+        card.style.animationPlayState = 'paused';
+        observer.observe(card);
+    });
+
+    console.log('%c🚀 JavaLauncher Enhanced Animations Loaded!', 'color:#3AA655;font-size:16px;font-weight:bold;');
+});
+
+// Enhanced preloader
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Add fade out animation
+        preloader.style.opacity = '0';
+        preloader.style.transition = 'opacity 0.8s ease';
+        
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 800);
+    }
+});

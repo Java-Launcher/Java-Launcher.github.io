@@ -27,24 +27,99 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadBtn.addEventListener('mouseleave', function() {
             this.style.animation = 'pixel-border 3s infinite';
         });
-    }
-
-    // Set download links (placeholder until we have actual files)
-    if (downloadBtn) {
-        downloadBtn.href = "#";
+        
+        // Real download link
+        downloadBtn.href = "downloads/JavaLauncher.jar";
         downloadBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('JavaLauncher будет доступен для скачивания скоро! Следите за обновлениями на GitHub.');
+            if (this.href.includes("#")) {
+                e.preventDefault();
+                alert('JavaLauncher будет доступен для скачивания скоро! Следите за обновлениями на GitHub.');
+            }
         });
     }
     
     if (winDownload) {
-        winDownload.href = "#";
+        winDownload.href = "downloads/JavaLauncher.exe";
         winDownload.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('JavaLauncher будет доступен для скачивания скоро! Следите за обновлениями на GitHub.');
+            if (this.href.includes("#")) {
+                e.preventDefault();
+                alert('JavaLauncher будет доступен для скачивания скоро! Следите за обновлениями на GitHub.');
+            }
         });
     }
+
+    // Enhanced theme toggle with animation
+    const themeToggler = document.getElementById('theme-toggle');
+    if (themeToggler) {
+        themeToggler.addEventListener('click', function() {
+            document.body.classList.toggle('theme-light');
+            const isLight = document.body.classList.contains('theme-light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            
+            // Update button icon
+            this.textContent = isLight ? '🌙' : '🌓';
+            
+            // Add rotation effect
+            this.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 500);
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('theme-light');
+            if (themeToggler) themeToggler.textContent = '🌙';
+        }
+    }
+
+    // Enhanced GitHub button animation
+    const githubBtn = document.querySelector('.btn.ghost[href*="github"]');
+    if (githubBtn) {
+        githubBtn.classList.add('github-btn');
+        
+        githubBtn.addEventListener('mouseenter', function() {
+            this.style.animation = 'pixel-glow 1.2s infinite, pixel-border 1.2s infinite';
+        });
+        
+        githubBtn.addEventListener('mouseleave', function() {
+            this.style.animation = '';
+        });
+    }
+
+    // Enhanced Donate button animation
+    const donateBtn = document.querySelector('.btn.donate');
+    if (donateBtn) {
+        donateBtn.addEventListener('mouseenter', function() {
+            this.style.animation = 'pixel-glow 1.2s infinite, pixel-border 1.2s infinite';
+        });
+        
+        donateBtn.addEventListener('mouseleave', function() {
+            this.style.animation = 'pixel-border 3s infinite';
+        });
+    }
+
+    // Crypto address copy functionality
+    document.querySelectorAll('.crypto-address').forEach(addr => {
+        addr.style.cursor = 'pointer';
+        addr.title = 'Нажми чтобы скопировать';
+        
+        addr.addEventListener('click', function() {
+            const text = this.textContent.trim();
+            copyToClipboard(text);
+            
+            // Visual feedback
+            this.classList.add('copied');
+            const originalText = this.textContent;
+            this.textContent = '✅ Скопировано!';
+            
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.classList.remove('copied');
+            }, 2000);
+        });
+    });
 
     // Smooth scroll with offset for fixed header
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
@@ -67,27 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Enhanced theme toggle with animation
-    const themeToggler = document.getElementById('theme-toggle');
-    if (themeToggler) {
-        themeToggler.addEventListener('click', function() {
-            document.body.classList.toggle('theme-light');
-            localStorage.setItem('theme', document.body.classList.contains('theme-light') ? 'light' : 'dark');
-            
-            // Add rotation effect
-            this.style.transform = 'rotate(360deg)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 500);
-        });
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            document.body.classList.add('theme-light');
-        }
-    }
 
     // Modal functionality
     const modal = document.getElementById('versions-modal');
@@ -179,3 +233,39 @@ window.addEventListener('load', function() {
         }, 800);
     }
 });
+
+// Copy to clipboard function
+function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+    } else {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            return Promise.resolve();
+        } catch (err) {
+            return Promise.reject(err);
+        } finally {
+            document.body.removeChild(textArea);
+        }
+    }
+}
+
+// Crypto info toggle for donate page
+function showCryptoInfo() {
+    const cryptoInfo = document.getElementById('cryptoInfo');
+    if (cryptoInfo) {
+        const isVisible = cryptoInfo.style.display === 'block';
+        cryptoInfo.style.display = isVisible ? 'none' : 'block';
+        
+        if (!isVisible) {
+            cryptoInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+}

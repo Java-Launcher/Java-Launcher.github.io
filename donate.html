@@ -183,11 +183,11 @@
       </div>
 
       <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <a href="index.html#features">Функции</a>
-        <a href="index.html#download">Скачать</a>
-        <a href="index.html#changelog">Обновления</a>
+        <a href="index.html#features">ФУНКЦИИ</a>
+        <a href="index.html#download">СКАЧАТЬ</a>
+        <a href="index.html#changelog">ОБНОВЛЕНИЯ</a>
         <a href="index.html#faq">FAQ</a>
-        <a href="donate.html" class="donate-nav">Поддержать</a>
+        <a href="donate" class="donate-nav">ПОДДЕРЖАТЬ</a>
       </nav>
 
       <div class="header-actions">
@@ -319,10 +319,10 @@
 
       <div>
         <h5 style="font-family: var(--ff-heading); font-size: 12px;">БЫСТРЫЕ ССЫЛКИ</h5>
-        <a href="index.html#features">Функции</a><br />
-        <a href="index.html#download">Загрузки</a><br />
+        <a href="index.html#features">ФУНКЦИИ</a><br />
+        <a href="index.html#download">ЗАГРУЗКИ</a><br />
         <a href="index.html#faq">FAQ</a><br />
-        <a href="donate.html">Поддержать</a>
+        <a href="donate">ПОДДЕРЖАТЬ</a>
       </div>
     </div>
 
@@ -331,41 +331,8 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
   <script>
-    // Preloader
-    window.addEventListener('load', function() {
-      const preloader = document.getElementById('preloader');
-      if (preloader) {
-        setTimeout(() => {
-          preloader.style.opacity = '0';
-          setTimeout(() => preloader.classList.add('hidden'), 800);
-        }, 500);
-      }
-    });
-
-    // Theme toggle
-    const themeToggler = document.getElementById('theme-toggle');
-    if (themeToggler) {
-      themeToggler.addEventListener('click', function() {
-        document.body.classList.toggle('theme-light');
-        const isLight = document.body.classList.contains('theme-light');
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-        
-        this.textContent = isLight ? '🌙' : '🌓';
-        this.style.transform = 'rotate(360deg)';
-        setTimeout(() => {
-          this.style.transform = '';
-        }, 500);
-      });
-
-      // Load saved theme
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.body.classList.add('theme-light');
-        themeToggler.textContent = '🌙';
-      }
-    }
-
     // Crypto info toggle
     function showCryptoInfo() {
       const cryptoInfo = document.getElementById('cryptoInfo');
@@ -414,28 +381,6 @@
       document.querySelectorAll('.crypto-address').forEach(addr => {
         addr.style.cursor = 'pointer';
         addr.title = 'Нажми чтобы скопировать';
-      });
-    });
-
-    // Add pixel animation to donation options
-    document.querySelectorAll('.donate-option').forEach(option => {
-      option.addEventListener('mouseenter', function() {
-        this.style.animation = 'pixel-glow 1.5s infinite, pixel-border 2s infinite';
-      });
-      
-      option.addEventListener('mouseleave', function() {
-        this.style.animation = '';
-      });
-    });
-
-    // Navigation animations
-    document.querySelectorAll('.main-nav a').forEach(navLink => {
-      navLink.addEventListener('mouseenter', function() {
-        this.style.animation = 'pixel-glow 1s infinite';
-      });
-      
-      navLink.addEventListener('mouseleave', function() {
-        this.style.animation = '';
       });
     });
   </script>

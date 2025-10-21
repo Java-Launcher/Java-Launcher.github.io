@@ -179,6 +179,11 @@ a:hover { text-decoration: underline; opacity: 0.95; }
   background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.18));
   display:inline-block;
   flex-shrink:0;
+  transition: all 0.3s ease;
+}
+.brand__logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.4);
 }
 .brand__text { line-height: 1; }
 .brand__title {
@@ -340,10 +345,12 @@ a:hover { text-decoration: underline; opacity: 0.95; }
   padding: 14px 20px;
   position: relative;
   overflow: hidden;
+  animation: pixel-border 3s infinite;
 }
 .btn.donate:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 18px 54px rgba(44,160,80,0.32);
+  animation: pixel-glow 1.2s infinite, pixel-border 1.2s infinite;
 }
 .btn.donate::after {
   content: '⚡';
@@ -357,6 +364,41 @@ a:hover { text-decoration: underline; opacity: 0.95; }
 .btn.donate:hover::after {
   right: 15px;
   opacity: 1;
+}
+
+/* GitHub button enhanced */
+.btn.ghost.github-btn {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--ff-heading);
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn.ghost.github-btn:hover {
+  background: var(--accent);
+  color: #07120a;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(58, 166, 85, 0.3);
+  animation: pixel-glow 1.5s infinite;
+}
+
+.btn.ghost.github-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s;
+}
+
+.btn.ghost.github-btn:hover::before {
+  left: 100%;
 }
 
 /* Minecraft-style pixel border animation */
@@ -752,6 +794,91 @@ a:hover { text-decoration: underline; opacity: 0.95; }
 ::-webkit-scrollbar { width: 12px; height: 12px; }
 ::-webkit-scrollbar-track { background: var(--bg-800); border-radius: 8px; }
 ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent-2), var(--accent)); border-radius: 8px; border: 2px solid rgba(0,0,0,0.15); }
+
+/* =========================
+   Enhanced Button Animations
+   ========================= */
+.btn.ghost.github-btn {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--accent);
+    background: transparent;
+    color: var(--text);
+    font-family: var(--ff-heading);
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn.ghost.github-btn:hover {
+    background: var(--accent);
+    color: #07120a;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(58, 166, 85, 0.3);
+    animation: pixel-glow 1.5s infinite;
+}
+
+.btn.ghost.github-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s;
+}
+
+.btn.ghost.github-btn:hover::before {
+    left: 100%;
+}
+
+/* Donate button enhanced */
+.btn.donate {
+    position: relative;
+    overflow: hidden;
+    animation: pixel-border 3s infinite;
+}
+
+.btn.donate:hover {
+    animation: pixel-glow 1.2s infinite, pixel-border 1.2s infinite;
+}
+
+/* Theme toggle enhancements */
+#theme-toggle {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+#theme-toggle:hover {
+    transform: rotate(180deg) scale(1.1);
+    border-color: var(--accent);
+    background: rgba(58, 166, 85, 0.1);
+}
+
+/* Crypto address copy feedback */
+.crypto-address.copied {
+    background: var(--accent) !important;
+    color: white !important;
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-5px); }
+    80% { transform: translateY(-3px); }
+}
+
+/* Logo styling */
+.brand__logo {
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.brand__logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+}
 
 /* =========================
    Small screen responsive

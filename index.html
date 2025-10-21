@@ -10,17 +10,13 @@
   <!-- Open Graph -->
   <meta property="og:title" content="JavaLauncher — официальный сайт" />
   <meta property="og:description" content="Удобный лаунчер для Minecraft: Java Edition. Следите за обновлениями и скачивайте последнюю версию." />
-  <meta property="og:image" content="images/javalauncher.png" />
+  <meta property="og:image" content="javalauncherlogo.png" />
   <meta property="og:type" content="website" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="icon" type="image/png" href="javalauncherlogo.png">
 </head>
 <body class="theme-dark">
 
@@ -49,7 +45,7 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <div class="brand">
-        <img src="images/icon.png" alt="JavaLauncher Logo" class="brand__logo" />
+        <img src="javalauncherlogo.png" alt="JavaLauncher Logo" class="brand__logo" />
         <div>
           <h1 class="brand__title">Java<span class="accent">Launcher</span></h1>
           <div class="brand__sub">Стабильный лаунчер Minecraft — Java Edition</div>
@@ -57,11 +53,11 @@
       </div>
 
       <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <a href="#features">Функции</a>
-        <a href="#download" class="cta">Скачать</a>
-        <a href="#changelog">Обновления</a>
+        <a href="#features">ФУНКЦИИ</a>
+        <a href="#download" class="cta">СКАЧАТЬ</a>
+        <a href="#changelog">ОБНОВЛЕНИЯ</a>
         <a href="#faq">FAQ</a>
-        <a href="donate.html" class="donate-nav">Поддержать</a>
+        <a href="donate" class="donate-nav">ПОДДЕРЖАТЬ</a>
       </nav>
 
       <div class="header-actions">
@@ -77,14 +73,14 @@
       <div class="container hero-grid">
         <div class="hero-meta">
           <div class="brand-hero">
-            <img src="images/icon.png" alt="JavaLauncher icon" style="width:64px;height:64px;border-radius:8px;object-fit:cover;">
+            <img src="javalauncherlogo.png" alt="JavaLauncher icon" style="width:64px;height:64px;border-radius:8px;object-fit:cover;">
             <div>
               <div class="h-subtitle">JavaLauncher — лаунчер нового поколения</div>
               <div class="brand__sub" style="margin-top:6px;">Быстрый. Лёгкий. Надёжный.</div>
             </div>
           </div>
 
-          <h2 class="title-large" style="margin-top:18px;">Запускай, управляй и модь Minecraft без лишних движений</h2>
+          <h2 class="title-large" style="margin-top:18px; font-family: var(--ff-heading); font-size: 20px;">ЗАПУСКАЙ, УПРАВЛЯЙ И МОДЬ MINECRAFT БЕЗ ЛИШНИХ ДВИЖЕНИЙ</h2>
           <p class="lead" style="margin-top:12px;">
             JavaLauncher создан для тех, кто хочет играть быстро и безопасно: автоматическая установка Java, поддержка модов, профили и резервные копии.
             Лаунчер — чистый, без рекламы и трекеров.
@@ -92,16 +88,16 @@
 
           <div class="hero-actions" style="margin-top:18px;">
             <a id="download-btn" class="download-btn" href="downloads/JavaLauncher.jar" role="button" aria-label="Скачать JavaLauncher для Windows">
-              🚀 Скачать JavaLauncher
+              🚀 СКАЧАТЬ JAVALAUNCHER
             </a>
-            <a class="btn donate" href="donate.html" role="button" aria-label="Поддержать проект">💚 DONATE</a>
-            <a class="btn ghost github-btn" href="https://github.com/Java-Launcher" target="_blank" rel="noopener" aria-label="GitHub">📁 GitHub</a>
+            <a class="btn donate" href="donate" role="button" aria-label="Поддержать проект">💚 DONATE</a>
+            <a class="btn ghost github-btn" href="https://github.com/Java-Launcher" target="_blank" rel="noopener" aria-label="GitHub">📁 GITHUB</a>
           </div>
 
           <div class="meta-row" style="margin-top:14px;">
-            <span>✔ Бесплатно</span>
-            <span>✔ Без рекламы</span>
-            <span>✔ Поддержка модов</span>
+            <span>✔ БЕСПЛАТНО</span>
+            <span>✔ БЕЗ РЕКЛАМЫ</span>
+            <span>✔ ПОДДЕРЖКА МОДОВ</span>
           </div>
         </div>
 
@@ -111,8 +107,8 @@
           </div>
 
           <div style="margin-top:14px; display:flex; justify-content:space-between; gap:12px; align-items:center;">
-            <div style="font-size:13px; color:var(--muted);">Версия: <strong id="launcher-version">v1.0.0</strong></div>
-            <div style="font-size:13px; color:var(--muted);">Платформа: Windows</div>
+            <div style="font-size:13px; color:var(--muted);">ВЕРСИЯ: <strong id="launcher-version">V1.0.0</strong></div>
+            <div style="font-size:13px; color:var(--muted);">ПЛАТФОРМА: WINDOWS</div>
           </div>
         </aside>
       </div>
@@ -121,46 +117,46 @@
     <!-- FEATURES -->
     <section id="features" class="section section--pad" aria-labelledby="features-title">
       <div class="container">
-        <h2 id="features-title" class="section-title">Функции</h2>
+        <h2 id="features-title" class="section-title">ФУНКЦИИ</h2>
         <p class="section-sub">Набор инструментов для игрока и моддера</p>
 
         <div class="features-grid" role="list">
           <article class="feature-card" role="listitem" aria-label="Оптимизация">
             <div class="feature-icon">⚡</div>
-            <h4>Оптимизация и производительность</h4>
+            <h4 style="font-family: var(--ff-heading); font-size: 12px;">ОПТИМИЗАЦИЯ И ПРОИЗВОДИТЕЛЬНОСТЬ</h4>
             <p>Автоматические JVM-аргументы, выделение памяти и быстрый запуск.</p>
           </article>
 
           <article class="feature-card" role="listitem" aria-label="Моды">
             <div class="feature-icon">🧩</div>
-            <h4>Поддержка модов</h4>
+            <h4 style="font-family: var(--ff-heading); font-size: 12px;">ПОДДЕРЖКА МОДОВ</h4>
             <p>Интеграция с Fabric, Forge, установка модов в пару кликов.</p>
           </article>
 
           <article class="feature-card" role="listitem" aria-label="Версии">
             <div class="feature-icon">🔁</div>
-            <h4>Управление версиями</h4>
+            <h4 style="font-family: var(--ff-heading); font-size: 12px;">УПРАВЛЕНИЕ ВЕРСИЯМИ</h4>
             <p>Профили для разных сборок, переключение версий и экспорт конфигураций.</p>
             <div style="margin-top:12px;">
-              <button class="btn small" data-modal-open="versions-modal">Подробнее</button>
+              <button class="btn small" data-modal-open="versions-modal" style="font-family: var(--ff-heading); font-size: 10px;">ПОДРОБНЕЕ</button>
             </div>
           </article>
 
           <article class="feature-card" role="listitem" aria-label="Backup">
             <div class="feature-icon">💾</div>
-            <h4>Резервные копии</h4>
+            <h4 style="font-family: var(--ff-heading); font-size: 12px;">РЕЗЕРВНЫЕ КОПИИ</h4>
             <p>Автоматические бэкапы профилей и игровых данных для безопасности ваших миров.</p>
           </article>
 
           <article class="feature-card" role="listitem" aria-label="Темы">
             <div class="feature-icon">🎨</div>
-            <h4>Темы оформления</h4>
+            <h4 style="font-family: var(--ff-heading); font-size: 12px;">ТЕМЫ ОФОРМЛЕНИЯ</h4>
             <p>Классическая тема Minecraft, тёмная и минимальная — на выбор.</p>
           </article>
 
           <article class="feature-card" role="listitem" aria-label="Безопасность">
             <div class="feature-icon">🔒</div>
-            <h4>Безопасность</h4>
+            <h4 style="font-family: var(--ff-heading); font-size: 12px;">БЕЗОПАСНОСТЬ</h4>
             <p>Хранение данных локально, шифрование токенов и безопасные обновления.</p>
           </article>
         </div>
@@ -172,7 +168,7 @@
       <div class="modal__content">
         <button class="modal__close" data-modal-close aria-label="Close modal">&times;</button>
         <div class="version-modal">
-          <h4 id="versions-title">Управление версиями — кратко</h4>
+          <h4 id="versions-title" style="font-family: var(--ff-heading);">УПРАВЛЕНИЕ ВЕРСИЯМИ — КРАТКО</h4>
           <p class="muted">Лёгкий и мощный менеджер версий для ваших профилей.</p>
           <ul>
             <li>Создавать кастомные установки и профили</li>
@@ -189,11 +185,11 @@
     <!-- DOWNLOAD SECTION -->
     <section id="download" class="section section--dark" aria-labelledby="download-title">
       <div class="container">
-        <h2 id="download-title" class="section-title">Скачать</h2>
+        <h2 id="download-title" class="section-title">СКАЧАТЬ</h2>
         <p class="section-sub">Java Launcher - Unofficial Minecraft Java Edition Launcher</p>
 
         <div style="background: rgba(255,107,107,0.1); padding: 20px; border-radius: 12px; border: 2px solid #ff6b6b; margin-bottom: 30px;">
-          <h4 style="color: #ff6b6b; margin: 0 0 10px 0;">⚠️ Legal Notice</h4>
+          <h4 style="color: #ff6b6b; margin: 0 0 10px 0; font-family: var(--ff-heading); font-size: 14px;">⚠️ LEGAL NOTICE</h4>
           <p style="color: var(--muted); margin: 0;">
             <strong>An unofficial Minecraft Java Edition Launcher</strong><br>
             Java Launcher does not pirate Minecraft; you need to own a legal copy of Minecraft Java Edition.
@@ -203,29 +199,29 @@
 
         <div class="download-cards">
           <div class="download-card" role="region" aria-label="Download Windows">
-            <h4>Windows</h4>
+            <h4 style="font-family: var(--ff-heading);">WINDOWS</h4>
             <p class="muted">JavaLauncher.exe - Portable version</p>
             <a id="win-download" class="download-btn" href="downloads/JavaLauncher.exe" download aria-label="Скачать JavaLauncher для Windows">
-              🚀 Download JavaLauncher
+              🚀 DOWNLOAD JAVALAUNCHER
             </a>
             <div style="margin-top: 15px; font-size: 12px; color: var(--muted);">
-              📦 Portable .exe • ⚡ No installation required
+              📦 PORTABLE .EXE • ⚡ NO INSTALLATION REQUIRED
             </div>
           </div>
           
           <div class="download-card">
-            <h4>Source Code</h4>
+            <h4 style="font-family: var(--ff-heading);">SOURCE CODE</h4>
             <p class="muted">GitHub repository with full source</p>
             <a class="btn ghost github-btn" href="https://github.com/Java-Launcher" target="_blank" style="width: 100%; display: block; text-align: center;">
-              📁 View Source Code
+              📁 VIEW SOURCE CODE
             </a>
           </div>
           
           <div class="download-card">
-            <h4>Support Project</h4>
+            <h4 style="font-family: var(--ff-heading);">SUPPORT PROJECT</h4>
             <p class="muted">Help development with donation</p>
-            <a class="btn donate" href="donate.html" style="display: block; text-align: center; width: 100%;">
-              💚 Donate
+            <a class="btn donate" href="donate" style="display: block; text-align: center; width: 100%;">
+              💚 DONATE
             </a>
           </div>
         </div>
@@ -235,14 +231,14 @@
     <!-- CHANGELOG -->
     <section id="changelog" class="section" aria-labelledby="changelog-title">
       <div class="container">
-        <h2 id="changelog-title" class="section-title">Changelog</h2>
+        <h2 id="changelog-title" class="section-title">CHANGELOG</h2>
         <p class="section-sub">Краткая история последних изменений</p>
 
         <div class="changelog-list">
           <article class="change">
             <div class="change__date">2025-01-20</div>
             <div>
-              <h5>v1.0.0 — Первый релиз</h5>
+              <h5 style="font-family: var(--ff-heading); font-size: 12px;">V1.0.0 — ПЕРВЫЙ РЕЛИЗ</h5>
               <p class="muted">Базовый функционал лаунчера, поддержка версий Minecraft, установка модов.</p>
             </div>
           </article>
@@ -250,7 +246,7 @@
           <article class="change">
             <div class="change__date">2025-01-15</div>
             <div>
-              <h5>v0.9.0 — Бета тестирование</h5>
+              <h5 style="font-family: var(--ff-heading); font-size: 12px;">V0.9.0 — БЕТА ТЕСТИРОВАНИЕ</h5>
               <p class="muted">Тестирование основных функций, исправление багов, улучшение интерфейса.</p>
             </div>
           </article>
@@ -258,7 +254,7 @@
           <article class="change">
             <div class="change__date">2025-01-10</div>
             <div>
-              <h5>v0.8.0 — Начало разработки</h5>
+              <h5 style="font-family: var(--ff-heading); font-size: 12px;">V0.8.0 — НАЧАЛО РАЗРАБОТКИ</h5>
               <p class="muted">Создание базовой архитектуры лаунчера, проектирование интерфейса.</p>
             </div>
           </article>
@@ -269,27 +265,27 @@
     <!-- FAQ -->
     <section id="faq" class="section section--alt" aria-labelledby="faq-title">
       <div class="container">
-        <h2 id="faq-title" class="section-title">Часто задаваемые вопросы</h2>
+        <h2 id="faq-title" class="section-title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
         <p class="section-sub">Короткие ответы на популярные вопросы</p>
 
         <div class="faq">
           <div class="faq__item">
-            <button class="faq__q">Как добавить мод в лаунчер?</button>
+            <button class="faq__q" style="font-family: var(--ff-heading); font-size: 12px;">КАК ДОБАВИТЬ МОД В ЛАУНЧЕР?</button>
             <div class="faq__a">Откройте вкладку «Mods», выберите профиль и нажмите «Добавить» — укажите .jar мод. Лаунчер попытается установить зависимости автоматически.</div>
           </div>
 
           <div class="faq__item">
-            <button class="faq__q">Есть ли реклама или трекеры?</button>
+            <button class="faq__q" style="font-family: var(--ff-heading); font-size: 12px;">ЕСТЬ ЛИ РЕКЛАМА ИЛИ ТРЕКЕРЫ?</button>
             <div class="faq__a">Нет. JavaLauncher стремится быть максимально простым и прозрачным: реклама и внешние трекеры не используются.</div>
           </div>
 
           <div class="faq__item">
-            <button class="faq__q">Нужно ли покупать Minecraft?</button>
+            <button class="faq__q" style="font-family: var(--ff-heading); font-size: 12px;">НУЖНО ЛИ ПОКУПАТЬ MINECRAFT?</button>
             <div class="faq__a">Да! Java Launcher требует легальную копию Minecraft Java Edition. Мы не поддерживаем пиратство.</div>
           </div>
 
           <div class="faq__item">
-            <button class="faq__q">Как связаться с автором?</button>
+            <button class="faq__q" style="font-family: var(--ff-heading); font-size: 12px;">КАК СВЯЗАТЬСЯ С АВТОРОМ?</button>
             <div class="faq__a">Лучше всего через Telegram: <a href="https://t.me/gordscripts" target="_blank">@GordScripts</a> или через GitHub: <a href="https://github.com/Java-Launcher" target="_blank">Java-Launcher</a>.</div>
           </div>
         </div>
@@ -299,13 +295,13 @@
     <!-- CREDITS & AUTHOR -->
     <section id="credits" class="section">
       <div class="container">
-        <h2 class="section-title">Автор</h2>
+        <h2 class="section-title">АВТОР</h2>
         <p class="section-sub">Контакты и благодарности</p>
 
         <div class="author-card" style="margin-top:18px;">
-          <img src="images/icon.png" alt="Gord avatar" />
+          <img src="javalauncherlogo.png" alt="Gord avatar" />
           <div class="info">
-            <div style="font-weight:700;">Gord (JavaLauncher)</div>
+            <div style="font-weight:700; font-family: var(--ff-heading); font-size: 14px;">GORD (JAVALAUNCHER)</div>
             <div class="muted">Lead developer</div>
             <div style="margin-top:8px;">
               <a href="https://github.com/Java-Launcher" target="_blank" rel="noopener">https://github.com/Java-Launcher</a>
@@ -323,22 +319,22 @@
     <footer class="site-footer" id="contact" role="contentinfo">
       <div class="container footer-grid">
         <div>
-          <img src="images/icon.png" alt="logo" class="footer-logo" />
+          <img src="javalauncherlogo.png" alt="logo" class="footer-logo" />
           <p>JavaLauncher © 2025</p>
           <p class="muted">Not associated with Mojang AB or Microsoft.</p>
         </div>
 
         <div>
-          <h5>Связь</h5>
+          <h5 style="font-family: var(--ff-heading); font-size: 12px;">СВЯЗЬ</h5>
           <p><a href="https://t.me/gordscripts" target="_blank">@GordScripts</a></p>
         </div>
 
         <div>
-          <h5>Быстрые ссылки</h5>
-          <a href="#features">Функции</a><br />
-          <a href="#download">Загрузки</a><br />
+          <h5 style="font-family: var(--ff-heading); font-size: 12px;">БЫСТРЫЕ ССЫЛКИ</h5>
+          <a href="#features">ФУНКЦИИ</a><br />
+          <a href="#download">ЗАГРУЗКИ</a><br />
           <a href="#faq">FAQ</a><br />
-          <a href="donate.html">Поддержать</a>
+          <a href="donate">ПОДДЕРЖАТЬ</a>
         </div>
       </div>
 
@@ -348,7 +344,6 @@
     </footer>
   </main>
 
-  <!-- SCRIPTS -->
   <script src="script.js"></script>
 </body>
 </html>

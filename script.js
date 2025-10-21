@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Real download link
         downloadBtn.href = "downloads/JavaLauncher.jar";
         downloadBtn.addEventListener('click', function(e) {
-            if (this.href.includes("#")) {
+            if (this.href.includes("#") || this.href.includes("downloads/")) {
                 e.preventDefault();
-                alert('JavaLauncher будет доступен для скачивания скоро! Следите за обновлениями на GitHub.');
+                alert('🚀 JavaLauncher будет доступен для скачивания скоро! Следите за обновлениями на GitHub.');
             }
         });
     }
@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (winDownload) {
         winDownload.href = "downloads/JavaLauncher.exe";
         winDownload.addEventListener('click', function(e) {
-            if (this.href.includes("#")) {
+            if (this.href.includes("#") || this.href.includes("downloads/")) {
                 e.preventDefault();
-                alert('JavaLauncher будет доступен для скачивания скоро! Следите за обновлениями на GitHub.');
+                alert('🚀 JavaLauncher будет доступен для скачивания скоро! Следите за обновлениями на GitHub.');
             }
         });
     }

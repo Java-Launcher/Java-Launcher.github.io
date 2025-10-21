@@ -87,7 +87,7 @@
     
     .donate-option h3 {
       font-family: var(--ff-heading);
-      font-size: 20px;
+      font-size: 16px;
       margin-bottom: 15px;
       color: var(--accent);
     }
@@ -110,6 +110,8 @@
       border: 2px solid var(--accent);
       transition: all 0.3s ease;
       margin-bottom: 30px;
+      font-family: var(--ff-heading);
+      font-size: 10px;
     }
     
     .back-btn:hover {
@@ -130,31 +132,36 @@
     .crypto-info h4 {
       color: var(--accent);
       margin-bottom: 10px;
+      font-family: var(--ff-heading);
+      font-size: 14px;
     }
     
     .crypto-address {
-      font-family: monospace;
+      font-family: 'Press Start 2P', monospace;
       background: var(--bg-700);
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 10px;
       word-break: break-all;
       margin: 10px 0;
       cursor: pointer;
       transition: all 0.3s ease;
-      border: 1px solid transparent;
+      border: 2px solid transparent;
+      line-height: 1.4;
     }
     
     .crypto-address:hover {
       border-color: var(--accent);
       background: var(--bg-600);
+      animation: pixel-glow 1s infinite;
     }
     
     .network-info {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
       margin-top: 5px;
       margin-bottom: 15px;
+      font-family: var(--ff-heading);
     }
   </style>
 </head>
@@ -167,15 +174,24 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="back-btn">
-        ← Назад к лаунчеру
-      </a>
       <div class="brand">
-        <img src="images/icon.png" alt="JavaLauncher Logo" class="brand__logo" />
+        <img src="javalauncherlogo.png" alt="JavaLauncher Logo" class="brand__logo" />
         <div>
           <h1 class="brand__title">Java<span class="accent">Launcher</span></h1>
           <div class="brand__sub">Поддержка разработки</div>
         </div>
+      </div>
+
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html#features">Функции</a>
+        <a href="index.html#download">Скачать</a>
+        <a href="index.html#changelog">Обновления</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="donate.html" class="donate-nav">Поддержать</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" title="Переключить тему">🌓</button>
       </div>
     </div>
   </header>
@@ -183,81 +199,85 @@
   <!-- Hero Section -->
   <div class="donate-hero">
     <div class="container">
-      <h1 style="font-family: var(--ff-heading); margin-bottom: 20px; font-size: 2.5em;">💚 Поддержать проект</h1>
-      <p style="font-size: 1.2em; max-width: 600px; margin: 0 auto; opacity: 0.9;">
-        Твоя поддержка помогает улучшать лаунчер, добавлять новые функции и ускорять разработку
+      <h1 style="font-family: var(--ff-heading); margin-bottom: 20px; font-size: 2em;">💚 ПОДДЕРЖАТЬ ПРОЕКТ</h1>
+      <p style="font-size: 1.1em; max-width: 600px; margin: 0 auto; opacity: 0.9; font-family: var(--ff-heading);">
+        ТВОЯ ПОДДЕРЖКА ПОМОГАЕТ УЛУЧШАТЬ ЛАУНЧЕР
       </p>
     </div>
   </div>
 
   <!-- Donation Options -->
   <main class="container section">
+    <a href="index.html" class="back-btn">
+      ← НАЗАД К ЛАУНЧЕРУ
+    </a>
+
     <div class="donate-options">
       <!-- Boosty -->
       <div class="donate-option">
         <div style="font-size: 3em; margin-bottom: 15px;">💳</div>
-        <h3>Boosty</h3>
+        <h3>BOOSTY</h3>
         <p>Ежемесячная подписка с эксклюзивными обновлениями</p>
-        <a href="https://boosty.to/gordscripts" target="_blank" class="btn donate" style="display: inline-block; margin-top: 15px; width: 100%;">
-          🚀 Подписаться на Boosty
+        <a href="https://boosty.to/gordscripts" target="_blank" class="btn donate" style="display: inline-block; margin-top: 15px; width: 100%; font-family: var(--ff-heading); font-size: 10px;">
+          🚀 ПОДПИСАТЬСЯ НА BOOSTY
         </a>
       </div>
       
       <!-- Telegram -->
       <div class="donate-option">
         <div style="font-size: 3em; margin-bottom: 15px;">📨</div>
-        <h3>Telegram</h3>
+        <h3>TELEGRAM</h3>
         <p>Прямая связь для донатов и вопросов</p>
-        <a href="https://t.me/gordscripts" target="_blank" class="btn donate" style="display: inline-block; margin-top: 15px; width: 100%;">
-          💬 Написать в Telegram
+        <a href="https://t.me/gordscripts" target="_blank" class="btn donate" style="display: inline-block; margin-top: 15px; width: 100%; font-family: var(--ff-heading); font-size: 10px;">
+          💬 НАПИСАТЬ В TELEGRAM
         </a>
-        <div style="margin-top: 15px; font-size: 12px; color: var(--muted);">
-          @gordscripts - для донатов и вопросов
+        <div style="margin-top: 15px; font-size: 10px; color: var(--muted); font-family: var(--ff-heading);">
+          @GORDSCRIPTS - ДЛЯ ДОНАТОВ И ВОПРОСОВ
         </div>
       </div>
       
       <!-- Crypto -->
       <div class="donate-option">
         <div style="font-size: 3em; margin-bottom: 15px;">₿</div>
-        <h3>Криптовалюта</h3>
-        <p>USDT (BEP-20), BTC, ETH и другие</p>
-        <button onclick="showCryptoInfo()" class="btn ghost" style="display: inline-block; margin-top: 15px; width: 100%; border: 2px solid #3AA655; cursor: pointer;">
-          🔐 Показать адреса
+        <h3>КРИПТОВАЛЮТА</h3>
+        <p>USDT (BEP-20), BTC, ETH И ДРУГИЕ</p>
+        <button onclick="showCryptoInfo()" class="btn ghost" style="display: inline-block; margin-top: 15px; width: 100%; border: 2px solid #3AA655; cursor: pointer; font-family: var(--ff-heading); font-size: 10px;">
+          🔐 ПОКАЗАТЬ АДРЕСА
         </button>
         
         <div id="cryptoInfo" class="crypto-info" style="display: none;">
-          <h4>Крипто-адреса:</h4>
+          <h4>КРИПТО-АДРЕСА:</h4>
           
-          <div><strong>USDT (BEP-20):</strong></div>
-          <div class="network-info">Сеть: Binance Smart Chain (BEP-20)</div>
+          <div style="font-family: var(--ff-heading); font-size: 12px;"><strong>USDT (BEP-20):</strong></div>
+          <div class="network-info">СЕТЬ: BINANCE SMART CHAIN (BEP-20)</div>
           <div class="crypto-address" onclick="copyAddress(this)">
             0xd0657f84ed1eed8b4651204b142fd866c5682407
           </div>
           
-          <div style="margin-top: 20px;"><strong>BTC (Bitcoin):</strong></div>
-          <div class="network-info">Сеть: Bitcoin Mainnet</div>
+          <div style="margin-top: 20px; font-family: var(--ff-heading); font-size: 12px;"><strong>BTC (BITCOIN):</strong></div>
+          <div class="network-info">СЕТЬ: BITCOIN MAINNET</div>
           <div class="crypto-address" onclick="copyAddress(this)">
             bc1qtu5s8jf8z7w4k6h9g3d2m1n0p2l9x8y7z6w5
           </div>
           
-          <div style="margin-top: 20px;"><strong>ETH (Ethereum):</strong></div>
-          <div class="network-info">Сеть: Ethereum Mainnet (ERC-20)</div>
+          <div style="margin-top: 20px; font-family: var(--ff-heading); font-size: 12px;"><strong>ETH (ETHEREUM):</strong></div>
+          <div class="network-info">СЕТЬ: ETHEREUM MAINNET (ERC-20)</div>
           <div class="crypto-address" onclick="copyAddress(this)">
             0x742d35Cc6634C0532925a3b8Dc9d8448e5aBc123
           </div>
           
           <div style="margin-top: 20px; padding: 15px; background: rgba(255,107,107,0.1); border-radius: 8px; border-left: 4px solid #ff6b6b;">
-            <h4 style="color: #ff6b6b; margin: 0 0 10px 0;">⚠️ Внимание!</h4>
-            <div style="font-size: 11px; color: var(--muted);">
-              • Всегда проверяй адрес через Telegram<br>
-              • Убедись что выбрал правильную сеть<br>
-              • USDT отправляй только через BEP-20 сеть<br>
-              • При возникновении проблем пиши в Telegram
+            <h4 style="color: #ff6b6b; margin: 0 0 10px 0; font-family: var(--ff-heading); font-size: 12px;">⚠️ ВНИМАНИЕ!</h4>
+            <div style="font-size: 10px; color: var(--muted); font-family: var(--ff-heading); line-height: 1.4;">
+              • ВСЕГДА ПРОВЕРЯЙ АДРЕС ЧЕРЕЗ TELEGRAM<br>
+              • УБЕДИСЬ ЧТО ВЫБРАЛ ПРАВИЛЬНУЮ СЕТЬ<br>
+              • USDT ОТПРАВЛЯЙ ТОЛЬКО ЧЕРЕЗ BEP-20 СЕТЬ<br>
+              • ПРИ ПРОБЛЕМАХ ПИШИ В TELEGRAM
             </div>
           </div>
           
-          <div style="margin-top: 15px; font-size: 11px; color: var(--muted);">
-            💡 Нажми на адрес чтобы скопировать
+          <div style="margin-top: 15px; font-size: 10px; color: var(--muted); font-family: var(--ff-heading);">
+            💡 НАЖМИ НА АДРЕС ЧТОБЫ СКОПИРОВАТЬ
           </div>
         </div>
       </div>
@@ -265,18 +285,18 @@
 
     <!-- Additional Info -->
     <div style="text-align: center; margin-top: 50px; padding: 30px; background: var(--card); border-radius: 15px;">
-      <h3 style="color: var(--accent); margin-bottom: 15px;">🎁 Что даёт поддержка?</h3>
+      <h3 style="color: var(--accent); margin-bottom: 15px; font-family: var(--ff-heading); font-size: 16px;">🎁 ЧТО ДАЁТ ПОДДЕРЖКА?</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
         <div>
-          <h4>🚀 Приоритет в разработке</h4>
+          <h4 style="font-family: var(--ff-heading); font-size: 12px;">🚀 ПРИОРИТЕТ В РАЗРАБОТКЕ</h4>
           <p style="color: var(--muted); font-size: 14px;">Твои идеи и баг-репорты получают высший приоритет</p>
         </div>
         <div>
-          <h4>💡 Новые функции</h4>
+          <h4 style="font-family: var(--ff-heading); font-size: 12px;">💡 НОВЫЕ ФУНКЦИИ</h4>
           <p style="color: var(--muted); font-size: 14px;">Ускоренная разработка запрошенных функций</p>
         </div>
         <div>
-          <h4>🔧 Техническая поддержка</h4>
+          <h4 style="font-family: var(--ff-heading); font-size: 12px;">🔧 ТЕХНИЧЕСКАЯ ПОДДЕРЖКА</h4>
           <p style="color: var(--muted); font-size: 14px;">Помощь с настройкой и решением проблем</p>
         </div>
       </div>
@@ -285,11 +305,29 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
-      <div style="text-align: center; color: var(--muted);">
-        <p>JavaLauncher © 2025 • Спасибо за поддержку! 💚</p>
-        <p>Not associated with Mojang or Microsoft</p>
+    <div class="container footer-grid">
+      <div>
+        <img src="javalauncherlogo.png" alt="logo" class="footer-logo" />
+        <p>JavaLauncher © 2025</p>
+        <p class="muted">Not associated with Mojang AB or Microsoft.</p>
       </div>
+
+      <div>
+        <h5 style="font-family: var(--ff-heading); font-size: 12px;">СВЯЗЬ</h5>
+        <p><a href="https://t.me/gordscripts" target="_blank">@GordScripts</a></p>
+      </div>
+
+      <div>
+        <h5 style="font-family: var(--ff-heading); font-size: 12px;">БЫСТРЫЕ ССЫЛКИ</h5>
+        <a href="index.html#features">Функции</a><br />
+        <a href="index.html#download">Загрузки</a><br />
+        <a href="index.html#faq">FAQ</a><br />
+        <a href="donate.html">Поддержать</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">Built with ♥ — JavaLauncher • <span class="muted">All rights reserved 2025</span></div>
     </div>
   </footer>
 
@@ -304,6 +342,29 @@
         }, 500);
       }
     });
+
+    // Theme toggle
+    const themeToggler = document.getElementById('theme-toggle');
+    if (themeToggler) {
+      themeToggler.addEventListener('click', function() {
+        document.body.classList.toggle('theme-light');
+        const isLight = document.body.classList.contains('theme-light');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        
+        this.textContent = isLight ? '🌙' : '🌓';
+        this.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 500);
+      });
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('theme-light');
+        themeToggler.textContent = '🌙';
+      }
+    }
 
     // Crypto info toggle
     function showCryptoInfo() {
@@ -321,21 +382,18 @@
     function copyAddress(element) {
       const text = element.textContent.trim();
       navigator.clipboard.writeText(text).then(() => {
-        // Временное уведомление
         const originalText = element.textContent;
-        const originalBackground = element.style.background;
         
-        element.textContent = '✅ Скопировано!';
+        element.textContent = '✅ СКОПИРОВАНО!';
         element.style.background = 'var(--accent)';
         element.style.color = 'white';
         
         setTimeout(() => {
           element.textContent = originalText;
-          element.style.background = originalBackground;
+          element.style.background = '';
           element.style.color = '';
         }, 2000);
       }).catch(err => {
-        console.error('Ошибка копирования: ', err);
         // Fallback для старых браузеров
         const textArea = document.createElement('textarea');
         textArea.value = text;
@@ -344,7 +402,7 @@
         document.execCommand('copy');
         document.body.removeChild(textArea);
         
-        element.textContent = '✅ Скопировано!';
+        element.textContent = '✅ СКОПИРОВАНО!';
         setTimeout(() => {
           element.textContent = text;
         }, 2000);
@@ -366,6 +424,17 @@
       });
       
       option.addEventListener('mouseleave', function() {
+        this.style.animation = '';
+      });
+    });
+
+    // Navigation animations
+    document.querySelectorAll('.main-nav a').forEach(navLink => {
+      navLink.addEventListener('mouseenter', function() {
+        this.style.animation = 'pixel-glow 1s infinite';
+      });
+      
+      navLink.addEventListener('mouseleave', function() {
         this.style.animation = '';
       });
     });
